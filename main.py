@@ -37,10 +37,10 @@ def main():
             posenet_preds_list.append(posenet_preds)
         print("It takes ", str(time.time() - start) + " s")
 
-        output_file = open(pipeline_cfg.output_video_path, "wb")
+        output_file = open(pipeline_cfg.output_video_binary_path, "wb")
         pickle.dump(posenet_preds_list, output_file)
         output_file.close()
-        to_csv(pipeline_cfg.output_binary_path, pipeline_cfg.csv_video_path)
+        to_csv(pipeline_cfg.output_video_binary_path, pipeline_cfg.output_video_csv_path)
 
     else:
         image = cv2.imread(pipeline_cfg.input_image_path)
